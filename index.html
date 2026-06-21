@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">跳到主要内容</a>
 
   <nav class="nav" aria-label="主导航">
@@ -22,29 +23,22 @@
       <span class="brand-mark">Y</span>
       <span>喻帅源</span>
     </a>
-    <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">
+    <button class="nav-toggle icon-button" type="button" aria-label="打开菜单" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
     <div class="nav-links">
       <a href="#profile">简介</a>
-      <a href="#subjects">辅导方向</a>
-      <a href="#experience">家教经历</a>
-      <a href="#results">优势</a>
+      <a href="#subjects">科目</a>
+      <a href="#experience">经历</a>
+      <a href="#method">方案</a>
       <a href="#contact">联系</a>
     </div>
   </nav>
 
   <header class="hero" id="hero">
-    <div class="hero-visual" aria-hidden="true">
-      <div class="board">
-        <span>Math</span>
-        <strong>方法 + 反馈 + 复盘</strong>
-        <em>English / Science</em>
-      </div>
-    </div>
-    <div class="hero-content">
+    <div class="hero-content reveal">
       <p class="eyebrow">广州 · 本科在读 · 家教与助教经验</p>
       <h1>小学、初中数学英语与理科辅导</h1>
       <p class="hero-copy">
@@ -52,7 +46,10 @@
         帮助学生建立更稳定的解题思路和学习信心。
       </p>
       <div class="hero-actions">
-        <a class="button primary" href="#contact">联系我</a>
+        <a class="button primary" href="#contact">
+          <span class="button-icon" aria-hidden="true">→</span>
+          联系我
+        </a>
         <a class="button secondary" href="#experience">查看经历</a>
       </div>
       <dl class="quick-facts" aria-label="关键数据">
@@ -70,16 +67,38 @@
         </div>
       </dl>
     </div>
+
+    <div class="hero-visual reveal" aria-label="辅导流程示意">
+      <div class="lesson-card">
+        <div class="lesson-top">
+          <span class="mini-icon">∑</span>
+          <div>
+            <strong>一节课的节奏</strong>
+            <small>诊断 · 讲解 · 练习 · 反馈</small>
+          </div>
+        </div>
+        <div class="lesson-bars" aria-hidden="true">
+          <span style="--w: 88%"></span>
+          <span style="--w: 72%"></span>
+          <span style="--w: 94%"></span>
+        </div>
+        <ul class="lesson-list">
+          <li><span></span>先找卡点，再讲方法</li>
+          <li><span></span>同类题迁移训练</li>
+          <li><span></span>课后反馈与复盘</li>
+        </ul>
+      </div>
+    </div>
   </header>
 
   <main id="main">
     <section class="section" id="profile">
-      <div class="section-heading">
+      <div class="section-heading reveal">
         <p>Profile</p>
         <h2>个人简介</h2>
       </div>
       <div class="profile-grid">
-        <article class="panel">
+        <article class="panel reveal">
           <h3>关于我</h3>
           <p>
             华南农业大学环境科学（国际）专业本科在读，数学基础扎实，英语学习经历较完整。
@@ -90,7 +109,7 @@
             独立迁移到同类题型，并逐步形成稳定的学习方法。
           </p>
         </article>
-        <aside class="panel profile-card">
+        <aside class="panel profile-card reveal">
           <h3>基本信息</h3>
           <dl>
             <div><dt>姓名</dt><dd>喻帅源</dd></div>
@@ -103,101 +122,162 @@
     </section>
 
     <section class="section muted" id="subjects">
-      <div class="section-heading">
+      <div class="section-heading reveal">
         <p>Subjects</p>
         <h2>可辅导方向</h2>
       </div>
-      <div class="card-grid three">
-        <article class="card">
-          <span class="card-icon">1</span>
+      <div class="filter-bar reveal" aria-label="筛选辅导科目">
+        <button class="filter-chip active" type="button" data-filter="all">全部</button>
+        <button class="filter-chip" type="button" data-filter="math">数学</button>
+        <button class="filter-chip" type="button" data-filter="english">英语</button>
+        <button class="filter-chip" type="button" data-filter="science">理科</button>
+      </div>
+      <div class="card-grid three subject-grid">
+        <article class="card subject-card reveal" data-category="math">
+          <span class="card-icon">∑</span>
           <h3>小学数学与奥数</h3>
           <p>五六年级奥数、几何面积、简单方程、鸡兔同笼、小升初衔接与拓展训练。</p>
+          <button class="text-button" type="button" data-tip="适合需要拓展思维、准备小升初或数学兴趣提升的学生。">查看适合学生</button>
         </article>
-        <article class="card">
-          <span class="card-icon">2</span>
+        <article class="card subject-card reveal" data-category="math science">
+          <span class="card-icon">△</span>
           <h3>初中数学与理科</h3>
           <p>初一全科作业辅导、初二数学方法训练、初三物理化学生物与数学冲刺。</p>
+          <button class="text-button" type="button" data-tip="适合基础需要梳理、题型迁移不稳定或临近考试的学生。">查看适合学生</button>
         </article>
-        <article class="card">
-          <span class="card-icon">3</span>
+        <article class="card subject-card reveal" data-category="english">
+          <span class="card-icon">A</span>
           <h3>英语基础与表达</h3>
           <p>CET-4、CET-6 已通过，IELTS 6.5，可辅助词汇、阅读、写作与口语表达训练。</p>
+          <button class="text-button" type="button" data-tip="适合需要补词汇、阅读理解、写作表达和口语信心的学生。">查看适合学生</button>
         </article>
       </div>
     </section>
 
     <section class="section" id="experience">
-      <div class="section-heading">
+      <div class="section-heading reveal">
         <p>Experience</p>
         <h2>家教与助教经历</h2>
       </div>
       <div class="timeline">
-        <article class="timeline-item">
+        <article class="timeline-item reveal open">
           <div class="timeline-date">2024.09 - 2025.02</div>
           <div class="timeline-content">
-            <h3>新东方教育科技集团 · 实习助教</h3>
-            <p>面向小学和初中学生的数学、英语学习支持，协助课堂管理、作业批改和课后答疑。</p>
-            <ul>
-              <li>跟进 30+ 名学生学习进度，帮助主讲老师维护课堂节奏。</li>
-              <li>定期反馈学习情况，协助家长理解学生的阶段问题和改进方向。</li>
-            </ul>
+            <button class="timeline-toggle" type="button" aria-expanded="true">
+              <span>新东方教育科技集团 · 实习助教</span>
+              <span class="toggle-mark" aria-hidden="true"></span>
+            </button>
+            <div class="timeline-body">
+              <p>面向小学和初中学生的数学、英语学习支持，协助课堂管理、作业批改和课后答疑。</p>
+              <ul>
+                <li>跟进 30+ 名学生学习进度，帮助主讲老师维护课堂节奏。</li>
+                <li>定期反馈学习情况，协助家长理解学生的阶段问题和改进方向。</li>
+              </ul>
+            </div>
           </div>
         </article>
-        <article class="timeline-item">
+        <article class="timeline-item reveal">
           <div class="timeline-date">2024.09 - 2025.06</div>
           <div class="timeline-content">
-            <h3>广州家庭教师 · 初一全科辅导</h3>
-            <p>辅导作业、讲解课堂未掌握知识点，帮助学生梳理每日学习任务。</p>
-            <ul>
-              <li>重点处理听课断点、基础题型和作业订正。</li>
-              <li>通过固定反馈降低学习压力，让学生更能跟上课堂进度。</li>
-            </ul>
+            <button class="timeline-toggle" type="button" aria-expanded="false">
+              <span>广州家庭教师 · 初一全科辅导</span>
+              <span class="toggle-mark" aria-hidden="true"></span>
+            </button>
+            <div class="timeline-body">
+              <p>辅导作业、讲解课堂未掌握知识点，帮助学生梳理每日学习任务。</p>
+              <ul>
+                <li>重点处理听课断点、基础题型和作业订正。</li>
+                <li>通过固定反馈降低学习压力，让学生更能跟上课堂进度。</li>
+              </ul>
+            </div>
           </div>
         </article>
-        <article class="timeline-item">
+        <article class="timeline-item reveal">
           <div class="timeline-date">2024.05 - 2025.05</div>
           <div class="timeline-content">
-            <h3>小学五六年级奥数辅导</h3>
-            <p>围绕奥数专题和小升初准备进行系统训练。</p>
-            <ul>
-              <li>覆盖鸡兔同笼、方程、几何面积、立体图形等专题。</li>
-              <li>重视结构化解题和独立思考能力训练。</li>
-            </ul>
+            <button class="timeline-toggle" type="button" aria-expanded="false">
+              <span>小学五六年级奥数辅导</span>
+              <span class="toggle-mark" aria-hidden="true"></span>
+            </button>
+            <div class="timeline-body">
+              <p>围绕奥数专题和小升初准备进行系统训练。</p>
+              <ul>
+                <li>覆盖鸡兔同笼、方程、几何面积、立体图形等专题。</li>
+                <li>重视结构化解题和独立思考能力训练。</li>
+              </ul>
+            </div>
           </div>
         </article>
-        <article class="timeline-item">
+        <article class="timeline-item reveal">
           <div class="timeline-date">2025.03 - 2025.06</div>
           <div class="timeline-content">
-            <h3>初三毕业生 · 理科冲刺</h3>
-            <p>主攻物理、化学、生物与数学，围绕中考节奏查漏补缺。</p>
-            <ul>
-              <li>用专题复习和错题归类提升答题稳定性。</li>
-              <li>帮助学生在阶段测验中看到可量化进步。</li>
-            </ul>
+            <button class="timeline-toggle" type="button" aria-expanded="false">
+              <span>初三毕业生 · 理科冲刺</span>
+              <span class="toggle-mark" aria-hidden="true"></span>
+            </button>
+            <div class="timeline-body">
+              <p>主攻物理、化学、生物与数学，围绕中考节奏查漏补缺。</p>
+              <ul>
+                <li>用专题复习和错题归类提升答题稳定性。</li>
+                <li>帮助学生在阶段测验中看到可量化进步。</li>
+              </ul>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section muted" id="results">
-      <div class="section-heading">
+    <section class="section muted" id="method">
+      <div class="section-heading reveal">
+        <p>Method</p>
+        <h2>辅导方案</h2>
+      </div>
+      <div class="method-layout">
+        <div class="tabs reveal" role="tablist" aria-label="辅导方案">
+          <button class="tab active" type="button" data-tab="diagnose">课前诊断</button>
+          <button class="tab" type="button" data-tab="practice">课中训练</button>
+          <button class="tab" type="button" data-tab="review">课后复盘</button>
+        </div>
+        <div class="tab-panels reveal">
+          <article class="tab-panel active" data-panel="diagnose">
+            <h3>先找问题，而不是直接刷题</h3>
+            <p>通过作业、错题和口头复述判断学生卡在概念、步骤、计算还是题意理解。</p>
+          </article>
+          <article class="tab-panel" data-panel="practice">
+            <h3>同类题分层练习</h3>
+            <p>先做基础题稳定方法，再做变式题训练迁移，最后让学生独立讲解关键步骤。</p>
+          </article>
+          <article class="tab-panel" data-panel="review">
+            <h3>把进步变成可追踪记录</h3>
+            <p>课后整理卡点、完成情况和下次重点，让家长和学生都清楚下一步怎么做。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="section-heading reveal">
         <p>Strengths</p>
         <h2>我的辅导优势</h2>
       </div>
       <div class="card-grid two">
-        <article class="card">
+        <article class="card strength-card reveal">
+          <span class="card-icon">✓</span>
           <h3>讲清楚思路</h3>
           <p>从审题、建模、计算到检查，每一步都尽量让学生说得出来、做得出来。</p>
         </article>
-        <article class="card">
+        <article class="card strength-card reveal">
+          <span class="card-icon">↻</span>
           <h3>及时反馈</h3>
           <p>课后整理学生卡点，给出下一次课的重点，让家长能了解学习进展。</p>
         </article>
-        <article class="card">
+        <article class="card strength-card reveal">
+          <span class="card-icon">▦</span>
           <h3>适合长期陪跑</h3>
           <p>关注学习习惯、错题复盘和阶段目标，不只解决当天作业。</p>
         </article>
-        <article class="card">
+        <article class="card strength-card reveal">
+          <span class="card-icon">◇</span>
           <h3>沟通耐心</h3>
           <p>面对基础薄弱或信心不足的学生，会先建立节奏，再逐步提高要求。</p>
         </article>
@@ -205,7 +285,7 @@
     </section>
 
     <section class="section contact" id="contact">
-      <div class="contact-inner">
+      <div class="contact-inner reveal">
         <div>
           <p class="eyebrow">Contact</p>
           <h2>欢迎通过邮箱联系我</h2>
@@ -224,6 +304,7 @@
     <button class="back-top" type="button">返回顶部</button>
   </footer>
 
+  <div class="tip-popover" role="status" aria-live="polite"></div>
   <div class="toast" role="status" aria-live="polite"></div>
   <script src="./js/main.js"></script>
 </body>
